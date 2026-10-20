@@ -1,0 +1,373 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text: #20264b;
+    --muted: #596584;
+    --blue: #365cf5;
+    --purple: #8538e8;
+    --red: #e52f55;
+    --green: #008f72;
+    --border: #dce3fa;
+}
+
+/* ===== 2. Page Background ===== */
+body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            ellipse at 5% 0%,
+            rgba(129, 140, 248, 0.27),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 95% 25%,
+            rgba(216, 180, 254, 0.32),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #e8eeff 0%,
+            #f4edff 48%,
+            #e4f5ff 100%
+        );
+
+    background-attachment: fixed;
+
+    color: var(--text);
+    min-height: 100vh;
+    padding: 32px 20px;
+}
+
+/* ===== 3. Main Heading ===== */
+h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -1.4px;
+
+    color: #27377f;
+    margin-bottom: 28px;
+}
+
+h1::after {
+    content: "";
+    display: block;
+
+    width: 68px;
+    height: 5px;
+
+    margin-top: 11px;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #4169ff,
+        #a855f7,
+        #ec4899
+    );
+}
+
+/* ===== 4. Full-Width Post Cards ===== */
+.post {
+    position: relative;
+
+    width: 100%;
+    max-width: none;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f8faff 65%,
+        #f4f5ff 100%
+    );
+
+    padding: 25px;
+    padding-bottom: 78px;
+
+    margin: 0 0 17px;
+
+    border: 1px solid rgba(183, 196, 242, 0.75);
+    border-radius: 17px;
+
+    box-shadow:
+        0 7px 24px rgba(57, 68, 145, 0.08),
+        0 2px 5px rgba(57, 68, 145, 0.03);
+
+    transition:
+        box-shadow 0.22s ease,
+        border-color 0.22s ease,
+        transform 0.22s ease;
+}
+
+.post:hover {
+    border-color: #aabaff;
+
+    box-shadow:
+        0 13px 32px rgba(57, 68, 145, 0.13),
+        0 3px 8px rgba(57, 68, 145, 0.05);
+
+    transform: translateY(-2px);
+}
+
+/* ===== 5. Username & Headings ===== */
+.post h2 {
+    color: #26345f;
+
+    font-size: 1.04rem;
+    font-weight: 800;
+    font-style: italic;
+
+    margin-bottom: 9px;
+    overflow-wrap: anywhere;
+}
+
+.post h2:first-child {
+    color: #334bc0;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+/* ===== 6. Country, Email & Content ===== */
+.post p {
+    color: var(--muted);
+
+    font-size: 0.96rem;
+    font-weight: 650;
+    font-style: italic;
+
+    line-height: 1.8;
+    margin-top: 7px;
+
+    overflow-wrap: anywhere;
+}
+
+.post p:last-of-type {
+    color: #38466d;
+    margin-bottom: 17px;
+}
+
+/* ===== 7. Common Button Styling ===== */
+.post a,
+.delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 850;
+    font-style: italic;
+    text-decoration: none;
+
+    padding: 11px 17px;
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.post a:hover,
+.delete-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ===== 8. View More — Electric Blue ===== */
+.post a:first-of-type {
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        #5278ff,
+        #3150e8
+    );
+
+    box-shadow: 0 5px 13px rgba(49, 80, 232, 0.24);
+}
+
+.post a:first-of-type:hover {
+    background: linear-gradient(
+        135deg,
+        #365cf5,
+        #243fc9
+    );
+
+    box-shadow: 0 8px 18px rgba(49, 80, 232, 0.34);
+}
+
+/* ===== 9. Edit — Bright Purple ===== */
+.post a:nth-of-type(2) {
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        #ad5cff,
+        #8035e8
+    );
+
+    box-shadow: 0 5px 13px rgba(128, 53, 232, 0.23);
+}
+
+.post a:nth-of-type(2):hover {
+    background: linear-gradient(
+        135deg,
+        #923be9,
+        #6925c8
+    );
+
+    box-shadow: 0 8px 18px rgba(128, 53, 232, 0.34);
+}
+
+/* ===== 10. Delete Form — Bottom Right ===== */
+.delete-form {
+    position: absolute;
+
+    right: 25px;
+    bottom: 21px;
+
+    margin: 0;
+}
+
+/* ===== 11. Delete — Vivid Red ===== */
+.delete-btn {
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        #ff647c,
+        #e52f55
+    );
+
+    box-shadow: 0 5px 13px rgba(229, 47, 85, 0.23);
+}
+
+.delete-btn:hover {
+    background: linear-gradient(
+        135deg,
+        #f13d5e,
+        #c91e43
+    );
+
+    box-shadow: 0 8px 18px rgba(229, 47, 85, 0.34);
+}
+
+/* ===== 12. Create New Post — Emerald ===== */
+body > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 22px;
+    margin-top: 3px;
+
+    border-radius: 11px;
+
+    background: linear-gradient(
+        135deg,
+        #10cba0,
+        #008f72
+    );
+
+    color: #ffffff;
+
+    font-size: 0.96rem;
+    font-weight: 900;
+    font-style: italic;
+    text-decoration: none;
+
+    box-shadow: 0 6px 16px rgba(0, 143, 114, 0.24);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+body > a:hover {
+    background: linear-gradient(
+        135deg,
+        #00ae87,
+        #00785e
+    );
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 9px 21px rgba(0, 143, 114, 0.34);
+}
+
+/* ===== 13. Focus Accessibility ===== */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #8ba4ff;
+    outline-offset: 4px;
+}
+
+/* ===== 14. Responsive Mobile Layout ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 22px 12px;
+    }
+
+    h1 {
+        margin-bottom: 22px;
+    }
+
+    .post {
+        padding: 19px;
+        padding-bottom: 73px;
+
+        margin-bottom: 14px;
+        border-radius: 14px;
+    }
+
+    .post h2:first-child {
+        font-size: 1.08rem;
+    }
+
+    .post p {
+        font-size: 0.9rem;
+    }
+
+    .post a,
+    .delete-btn {
+        padding: 9px 12px;
+        font-size: 0.83rem;
+    }
+
+    .delete-form {
+        right: 18px;
+        bottom: 16px;
+    }
+
+    body > a {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== 15. Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .post:hover,
+    .post a:hover,
+    .delete-btn:hover,
+    body > a:hover {
+        transform: none;
+    }
+}
